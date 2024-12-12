@@ -1,0 +1,10 @@
+//semplice codice hydra
+osc(15,0.1,1.5).rotate().out(o0)
+let tem = 16;
+noise(4).hue(-0.1).modulate(noise(1,0),0.5).colorama([0.09,0.6,0.66,1.0].fast(tem)).out(o1)
+noise(1).rotate().pixelate(2,2,1,0).color([tem,0,0,1,0],[0,1,0,1,0],[0,0,1,1,0])
+         .colorama([0.005,0.33,0.66,1.0].fast(1))
+          .hue(() => Math.sin(time))
+  .out(o2)
+osc(50).colorama(5,2,4).hue(0,1).rotate( () => time%-360 ).out( o3)
+render()
